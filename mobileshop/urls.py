@@ -24,4 +24,5 @@ urlpatterns = [
     path('index2/',views.index2),
     path('createuser/',views.createuser),
     path('loginuser/',views.loginuser),
+    path('index1/',views.index1)
 ]

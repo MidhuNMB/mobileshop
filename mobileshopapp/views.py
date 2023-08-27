@@ -7,4 +7,6 @@ def loginuser(request):
     return render(request,'loginuser.html')
 def index2(request):
     return render(request,'index.html')
+def index1(request):
+    return render(request,'index.html')
 # Create your views here.
