@@ -1,8 +1,8 @@
 from django.shortcuts import render,redirect
 def index(request):
     # return render(request,'index.html')
-    return render(request,'admin.html')
-    # return render(request,'staff.html')
+    # return render(request,'admin.html')
+    return render(request,'staff.html')
     # return render(request,'user.html')
 def createuser(request):
     return render(request,'createuser.html')
