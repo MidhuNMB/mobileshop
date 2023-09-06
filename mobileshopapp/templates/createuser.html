@@ -54,7 +54,7 @@
                         <div class="full">
                             <div class="center-desk">
                                 <div class="logo">
-                                    <a href="index.html"><img src="{% static 'images/logo1.png' %}" alt="#"></a>
+                                    <a href="/index2/"><img src="{% static 'images/logo1.png' %}" alt="#"></a>
                                 </div>
                             </div>
                         </div>
@@ -104,21 +104,43 @@
                         <h2>create account</h2>
                     </div>
                     <form class="main_form" action="#" method="post">
+                        {% csrf_token %}
                         <div class="row">
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                                <input class="form-control" placeholder="Your name" type="text" name="name">
+                                <input class="form-control" placeholder="first name" type="text" name="firstname">
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                                <input class="form-control" placeholder="Email" type="text" name="Email">
+                                <input class="form-control" placeholder="last name" type="text" name="lastname">
                             </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                <input class="form-control" placeholder="gender" type="text" name="gender">
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                <input class="form-control" placeholder="email" type="email" name="email">
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                <input class="form-control" placeholder="phone" type="text" name="phone">
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                <input class="form-control" placeholder="address" type="text" name="address">
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                <input class="form-control" placeholder="district" type="text" name="district">
+                            </div>
+                
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                <input class="form-control" placeholder="Your name" type="file" name="photo">
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                <input class="form-control" placeholder="username" type="text" name="username">
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                <input class="form-control" placeholder="password" type="password" name="password">
+                            </div>
+                            
+                           
                             <div class=" col-md-12">
-                                <input class="form-control" placeholder="Phone" type="text" name="Phone">
-                            </div>
-                            <div class="col-md-12">
-                                <textarea class="textarea" placeholder="user id" name="userid"></textarea>
-                            </div>
-                            <div class=" col-md-12">
-                                <button class="send">create</button>
+                                <button class="send"><a href="/createac/"></a>createac</button>
                             </div>
                         </div>
                     </form>
