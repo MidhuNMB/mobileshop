@@ -104,6 +104,7 @@
                         <h2>create account</h2>
                     </div>
                     <form class="main_form" action="#" method="post">
+                        {% csrf_token %}
                         <div class="row">
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
                                 <input class="form-control" placeholder="userid" type="text" name="userid">
