@@ -43,7 +43,7 @@ def createac(request):
     c.firstname=request.POST.get('firstname')
     c.email=request.POST.get('email')
     c.phone=request.POST.get('phone')
-    c.accounttype=request.POST.get('accounttype')
+    c.accounttype="user"
     d.firstname=request.POST.get('firstname')
     d.lastname=request.post.get('lastname')
     d.gender=request.POST.get('gender')
