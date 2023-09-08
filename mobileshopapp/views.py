@@ -16,6 +16,10 @@ def index2(request):
     return render(request,'index.html')
 def index1(request):
     return render(request,'index.html')
+def staffpg(request):
+    return render(request,'staff.html')
+def sellerpg(request):
+    return render(request,'seller.html')
 def createac(request):
     a=User()
     b=user_tbl()
@@ -68,6 +72,16 @@ def createac(request):
     d.save()
     e.save()
     return redirect('/')
+def login1(request):
+    a=request.POST.get('username')
+    b=request.POST.get('password')
+    data=authenticate(username=a,password=b)
+    if data is not None and data.is_superuser==1:
+        return redirect('/admin/')
+    elif data is not None and data.is_superuser==0:
+        return redirect('/user/')
+    else:
+        return HttpResponse('invalid login')
 
 
     
