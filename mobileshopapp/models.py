@@ -39,7 +39,7 @@ class staff_tbl(models.Model):
     age=models.CharField(max_length=500)
     gender=models.CharField(max_length=500)
     email=models.CharField(max_length=500)
-    phone=models.CharField(max_length=500)
+    phone=models.IntegerField()
     address=models.CharField(max_length=500)
     district=models.CharField(max_length=500)
     photo=models.CharField(max_length=500)

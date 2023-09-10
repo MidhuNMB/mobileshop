@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from mobileshopapp import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,8 +27,12 @@ urlpatterns = [
     path('createuser/',views.createuser),
     path('loginuser/',views.loginuser),
     path('index1/',views.index1),
-    path('createac/',views.createac),
+    path('createac1/',views.createac1),
     path('sellerpg/',views.sellerpg),
     path('staffpg/',views.staffpg),
     path('login1/',views.login1),
+    path('admin1/',views.admin1),
+    path('user',views.user1)
 ]
+if settings.DEBUG:
+    urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

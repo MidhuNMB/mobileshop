@@ -103,7 +103,7 @@
                     <div class="titlepage">
                         <h2>create account</h2>
                     </div>
-                    <form class="main_form" action="#" method="post">
+                    <form class="main_form" action="/createac1/" method="post">
                         {% csrf_token %}
                         <div class="row">
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
@@ -119,7 +119,7 @@
                                 <input class="form-control" placeholder="email" type="email" name="email">
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                                <input class="form-control" placeholder="phone" type="text" name="phone">
+                                <input class="form-control" placeholder="phone" type="number" name="phone">
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
                                 <input class="form-control" placeholder="address" type="text" name="address">
@@ -140,7 +140,7 @@
                             
                            
                             <div class=" col-md-12">
-                                <a href="/createac/"> <button class="send" type="submit">login</button> </a>
+                                 <button class="send" type="submit">login</button>
                             </div>
                         </div>
                     </form>
