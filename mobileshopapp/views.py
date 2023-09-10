@@ -44,8 +44,7 @@ def createac1(request):
     c.accounttype="user"
     c.email=request.POST.get('email')
     c.phone=request.POST.get('phone')
-    c.username=request.POST.get('username')
-
+    c.accounttype=request.POST.get('accounttype')
     a.save()
     b.save()
     c.save()
