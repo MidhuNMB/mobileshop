@@ -23,13 +23,15 @@ def sellerpg(request):
 def createac(request):
     a=User()
     b=user_tbl()
+    c=useraccount_tbl()
     a.first_name=request.POST.get('fistname')
     a.last_name=request.POST.get('lastname')
     a.username=request.POST.get('username')
     password=request.POST.get('password')
-    a,b.set_password(password)
+    a.set_password(password)
+
     b.firstname=request.POST.get('firstname')
-    b.lastname=request.post.get('lastname')
+    b.lastname=request.POST.get('lastname')
     b.gender=request.POST.get('gender')
     b.email=request.POST.get('email')
     b.phone=request.POST.get('phone')
@@ -37,8 +39,16 @@ def createac(request):
     b.district=request.POST.get('district')
     b.photo=request.POST.get('photo')
     b.username=request.POST.get('username')
+
+    c.username=request.POST.get('username')
+    c.firstname=request.POST.get('firstname')
+    c.email=request.POST.get('email')
+    b.phone=request.POST.get('phone')
+    c.accounttype="user"
+
     a.save()
     b.save()
+    c.save()
     return redirect('/')
 def createac(request):
     c=useraccount_tbl()

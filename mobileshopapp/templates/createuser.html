@@ -103,7 +103,7 @@
                     <div class="titlepage">
                         <h2>create account</h2>
                     </div>
-                    <form class="main_form" action="#" method="post">
+                    <form class="main_form" action="/createac/" method="post">
                         {% csrf_token %}
                         <div class="row">
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
@@ -140,7 +140,7 @@
                             
                            
                             <div class=" col-md-12">
-                                <a href="/createac/"> <button class="send" type="submit">login</button> </a>
+                               <input class="send" type="submit" value="Create account">
                             </div>
                         </div>
                     </form>
