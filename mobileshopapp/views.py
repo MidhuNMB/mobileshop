@@ -24,7 +24,7 @@ def createac1(request):
     a=User()
     b=user_tbl()
     c=useraccount_tbl()
-    a.first_name=request.POST.get('fistname')
+    a.first_name=request.POST.get('firstname')
     a.last_name=request.POST.get('lastname')
     a.username=request.POST.get('username')
     password=request.POST.get('password')
@@ -37,7 +37,7 @@ def createac1(request):
     b.phone=request.POST.get('phone')
     b.address=request.POST.get('address')
     b.district=request.POST.get('district')
-    b.photo=request.POST.get('photo')
+    b.photo=request.FILES('photo')
     b.username=request.POST.get('username')
 
     c.username=request.POST.get('username')
