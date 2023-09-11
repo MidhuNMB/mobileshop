@@ -53,6 +53,7 @@ def login1(request):
     a=request.POST.get('username')
     b=request.POST.get('password')
     data=authenticate(username=a,password=b)
+    request.session['username']=a
     if data is not None and data.is_superuser==1:
         return redirect('/admin/')
     elif data is not None and data.is_superuser==0:
