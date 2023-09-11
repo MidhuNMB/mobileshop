@@ -3,7 +3,6 @@ class useraccount_tbl(models.Model):
     username=models.CharField(max_length=500)
     firstname=models.CharField(max_length=500)
     email=models.CharField(max_length=500)
-    phone=models.IntegerField()
     accounttype=models.CharField(max_length=500)
     class meta:
         db_tbl='useraccount_tbl'

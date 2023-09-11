@@ -30,9 +30,13 @@ urlpatterns = [
     path('createac1/',views.createac1),
     path('sellerpg/',views.sellerpg),
     path('staffpg/',views.staffpg),
+    path('createsa/',views.createsa),
+    path('createstaffac/',views.createstaffac),
     path('login1/',views.login1),
-    path('admin1/',views.admin1),
-    path('user',views.user1)
+    path('admin/',views.admin),
+    path('user/',views.user)
+
+    
 ]
 if settings.DEBUG:
     urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
