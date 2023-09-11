@@ -4,8 +4,8 @@ from django. contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.http import HttpResponse
 def index(request):
-    #return render(request,'index.html')
-    return render(request,'admin.html')
+    return render(request,'index.html')
+    # return render(request,'admin.html')
     # return render(request,'staff.html')
     # return render(request,'user.html')
 def createuser(request):
