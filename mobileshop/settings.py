@@ -77,7 +77,8 @@ WSGI_APPLICATION = 'mobileshop.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME':'mobileshop',
+        # 'NAME':'mobileshop',
+        'NAME':'mobileshop1',
         'USER':"root",
         'PASSWD':'',
         'HOST':'localhost',

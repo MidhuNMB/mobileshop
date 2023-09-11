@@ -4,8 +4,8 @@ from django. contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.http import HttpResponse
 def index(request):
-    #return render(request,'index.html')
-    return render(request,'admin.html')
+    return render(request,'index.html')
+    # return render(request,'admin.html')
     # return render(request,'staff.html')
     # return render(request,'user.html')
 def createuser(request):
@@ -37,9 +37,23 @@ def createac1(request):
     b.phone=request.POST.get('phone')
     b.address=request.POST.get('address')
     b.district=request.POST.get('district')
-    b.photo=request.POST.get('photo')
+    b.photo=request.FILES('photo')
     b.username=request.POST.get('username')
- 
+
+    c.username=request.POST.get('username')
+    c.firstname=request.POST.get('firstname')
+    c.email=request.POST.get('email')
+    b.phone=request.POST.get('phone')
+    c.accounttype="user"
+
+    a.save()
+    b.save()
+    c.save()
+    return redirect('/')
+def createac(request):
+    c=useraccount_tbl()
+    d=seller_tbl()
+    e=staff_tbl()
     c.firstname=request.POST.get('firstname')
     c.accounttype="user"
     c.email=request.POST.get('email')
