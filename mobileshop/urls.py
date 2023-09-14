@@ -28,13 +28,13 @@ urlpatterns = [
     path('loginuser/',views.loginuser),
     path('index1/',views.index1),
     path('createac1/',views.createac1),
-    path('sellerpg/',views.sellerpg),
-    path('staffpg/',views.staffpg),
+    path('sellerHome/',views.sellerHome),
+    path('staffHome/',views.staffHome),
     path('createsa/',views.createsa),
     path('createstaffac/',views.createstaffac),
     path('login1/',views.login1),
-    path('admin/',views.admin),
-    path('user/',views.user),
+    path('adminHome/',views.adminHome),
+    path('userHome/',views.userHome),
     path('viewseller/',views.viewseller)
 
     

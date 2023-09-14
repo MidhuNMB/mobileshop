@@ -5,11 +5,7 @@ from django.contrib.auth import authenticate
 from django.http import HttpResponse
 def index(request):
     return render(request,'index.html')
-    #return render(request,'admin.html')
-    # return render(request,'staff.html')
-    # return render(request,'user.html')
-    #return render(request,'seller.html')
-    return render(request,'viewseller.html')
+   
 def createuser(request):
     return render(request,'createuser.html')
 def loginuser(request):
@@ -18,10 +14,7 @@ def index2(request):
     return render(request,'index.html')
 def index1(request):
     return render(request,'index.html')
-def staffpg(request):
-    return render(request,'staff.html')
-def sellerpg(request):
-    return render(request,'seller.html')
+
 
 def createac1(request):
     a=User()
@@ -67,7 +60,7 @@ def createsa(request):
     c.username=request.POST.get('username')
     c.firstname=request.POST.get('firstname')
     c.email=request.POST.get('email')
-    c.accounttype="seler"
+    c.accounttype="seller"
 
     d.firstname=request.POST.get('firstname')
     d.lastname=request.POST.get('lastname')
@@ -121,15 +114,25 @@ def login1(request):
     data=authenticate(username=a,password=b)
 
     if data is not None and data. is_superuser==1:
-        return redirect('/admin/')
+        return redirect('/adminHome/')
     elif data is not None and data.is_superuser==0:
-        return redirect('/user/')
+        d1=useraccount_tbl.objects.get(username=data)
+        if d1.accounttype=="user":
+            return redirect('/userHome/')
+        elif d1.accounttype=="seller":
+            return redirect('/sellerHome/')
+        elif d1.accounttype=="staff":
+            return redirect('/staffHome/')
     else:
         return HttpResponse('invalid login')
-def admin(request):
+def adminHome(request):
     return render(request,'admin.html')
-def user(request):
+def userHome(request):
     return render(request,'user.html')
+def staffHome(request):
+    return render(request,'staff.html')
+def sellerHome(request):
+    return render(request,'seller.html')
 def viewseller(request):
     return render(request,'viewseller.html')
 
