@@ -34,7 +34,8 @@ urlpatterns = [
     path('createstaffac/',views.createstaffac),
     path('login1/',views.login1),
     path('admin/',views.admin),
-    path('user/',views.user)
+    path('user/',views.user),
+    path('viewseller/',views.viewseller)
 
     
 ]

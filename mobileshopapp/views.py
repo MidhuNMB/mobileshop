@@ -5,10 +5,11 @@ from django.contrib.auth import authenticate
 from django.http import HttpResponse
 def index(request):
     #return render(request,'index.html')
-    return render(request,'admin.html')
+    #return render(request,'admin.html')
     # return render(request,'staff.html')
     # return render(request,'user.html')
     #return render(request,'seller.html')
+    return render(request,'viewseller.html')
 def createuser(request):
     return render(request,'createuser.html')
 def loginuser(request):
@@ -129,6 +130,8 @@ def admin(request):
     return render(request,'admin.html')
 def user(request):
     return render(request,'user.html')
+def viewseller(request):
+    return render(request,'viewseller.html')
 
 
 
