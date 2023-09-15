@@ -71,7 +71,7 @@ def createsellerac(request):
     d.district=request.POST.get('district')
     d.photo=request.FILES['photo']
     d.username=request.POST.get('username')
-    
+
     a.save()
     c.save()
     d.save()
@@ -126,6 +126,7 @@ def login1(request):
             return redirect('/staffpg/')
     else:
         return HttpResponse('invalid login')
+    
 def adminHome(request):
     return render(request,'admin.html')
 def userHome(request):
@@ -141,6 +142,23 @@ def staffpg(request):
 def sellerpg(request):
     return render(request,'sellerpg.html')
 
+def viewseller(request):
+   a=seller_tbl.objects.all()
+   return render(request,'viewseller.html',{'data':a})
+def delete1(request,id):
+    a=seller_tbl.objects.get(id=id)
+    a.delete()
+    return redirect('/viewseller/',{'data':a})
+
+def viewstaff(request):
+    return render(request,'viewstaff.html')
+def viewstaff(request):
+    a=staff_tbl.objects.all()
+    return render(request,'viewstaff.html',{'data':a})
+def delete2(request,id):
+    a=staff_tbl.objects.get(id=id)
+    a.delete()
+    return redirect('/viewstaff/',{'data':a})
 
 
     

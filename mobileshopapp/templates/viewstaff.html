@@ -92,17 +92,19 @@
     </header>
     <!-- end header -->
     
-        <h1>seler table</h1>
+        <h1>staff table</h1>
         <table class="table table-bordered">
             <thead>
                 <th>first_name</th>
                 <th>last_name</th>
+                <th>designation</th>
+                <th>age</th>
                 <th>gender</th>
                 <th>email</th>
                 <th>phone</th>
                 <th>address</th>
                 <th>district</th>
-                <th>img</th>
+                <th>photo</th>
                 <th>username</th>
 
             </thead>
@@ -111,6 +113,8 @@
             <tr>
             <td>{{x.firstname}}</td>
             <td>{{x.lastname}}</td>
+            <td>{{x.designation}}</td>
+            <td>{{x.age}}</td>
             <td>{{x.gender}}</td>
             <td>{{x.email}}</td>
             <td>{{x.phone}}</td>
@@ -118,7 +122,7 @@
             <td>{{x.district}}</td>
             <td><img src="{{x.photo}}" height="100" width="100" alt="img"></td>
             <td>{{x.username}}</td>
-            <td><a href="/delete1/{{x.id}}">delete</a></td>
+            <td><a href="/delete2/{{x.id}}">delete</a></td>
 
             </tr>
             {% endfor %}

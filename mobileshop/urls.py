@@ -37,8 +37,10 @@ urlpatterns = [
     path('userHome/',views.userHome),
     path('viewseller/',views.viewseller),
     path('sellerpg/',views.sellerpg),
-    path('staffpg/',views.staffpg)
-
+    path('staffpg/',views.staffpg),
+    path('delete1/<int:id>',views.delete1),
+    path('viewstaff/',views.viewstaff),
+    path('delete2/<int:id>',views.delete2)
     
 ]
 if settings.DEBUG:
