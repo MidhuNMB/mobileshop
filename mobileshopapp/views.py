@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate
 from django.http import HttpResponse
 def index(request):
     return render(request,'index.html')
-   
+    #return render(request,'sellerpg.html')
 def createuser(request):
     return render(request,'createuser.html')
 def loginuser(request):
@@ -46,7 +46,7 @@ def createac1(request):
     c.save()
     return redirect('/')
 
-def createsa(request):
+def createsellerac(request):
     d=seller_tbl()
     a=User()
     c=useraccount_tbl()
@@ -71,6 +71,7 @@ def createsa(request):
     d.district=request.POST.get('district')
     d.photo=request.FILES['photo']
     d.username=request.POST.get('username')
+
     a.save()
     c.save()
     d.save()
@@ -120,22 +121,44 @@ def login1(request):
         if d1.accounttype=="user":
             return redirect('/userHome/')
         elif d1.accounttype=="seller":
-            return redirect('/sellerHome/')
+            return redirect('/sellerpg/')
         elif d1.accounttype=="staff":
-            return redirect('/staffHome/')
+            return redirect('/staffpg/')
     else:
         return HttpResponse('invalid login')
+    
 def adminHome(request):
     return render(request,'admin.html')
 def userHome(request):
     return render(request,'user.html')
 def staffHome(request):
-    return render(request,'staff.html')
+    return render(request,'createstaff.html')
 def sellerHome(request):
-    return render(request,'seller.html')
+    return render(request,'createseller.html')
 def viewseller(request):
     return render(request,'viewseller.html')
+def staffpg(request):
+    return render(request,'staffpg.html')
+def sellerpg(request):
+    return render(request,'sellerpg.html')
 
+def viewseller(request):
+   a=seller_tbl.objects.all()
+   return render(request,'viewseller.html',{'data':a})
+def delete1(request,id):
+    a=seller_tbl.objects.get(id=id)
+    a.delete()
+    return redirect('/viewseller/',{'data':a})
+
+def viewstaff(request):
+    return render(request,'viewstaff.html')
+def viewstaff(request):
+    a=staff_tbl.objects.all()
+    return render(request,'viewstaff.html',{'data':a})
+def delete2(request,id):
+    a=staff_tbl.objects.get(id=id)
+    a.delete()
+    return redirect('/viewstaff/',{'data':a})
 
 
     

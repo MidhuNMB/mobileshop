@@ -28,15 +28,19 @@ urlpatterns = [
     path('loginuser/',views.loginuser),
     path('index1/',views.index1),
     path('createac1/',views.createac1),
-    path('sellerHome/',views.sellerHome),
-    path('staffHome/',views.staffHome),
-    path('createsa/',views.createsa),
+    path('seller home/',views.sellerHome),
+    path('staff home/',views.staffHome),
+    path('createsellerac/',views.createsellerac),
     path('createstaffac/',views.createstaffac),
     path('login1/',views.login1),
     path('adminHome/',views.adminHome),
     path('userHome/',views.userHome),
-    path('viewseller/',views.viewseller)
-
+    path('viewseller/',views.viewseller),
+    path('sellerpg/',views.sellerpg),
+    path('staffpg/',views.staffpg),
+    path('delete1/<int:id>',views.delete1),
+    path('viewstaff/',views.viewstaff),
+    path('delete2/<int:id>',views.delete2)
     
 ]
 if settings.DEBUG:

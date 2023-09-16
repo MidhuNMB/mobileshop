@@ -93,7 +93,7 @@
     <!-- end header -->
     
         <h1>seler table</h1>
-        <table>
+        <table class="table table-bordered">
             <thead>
                 <th>first_name</th>
                 <th>last_name</th>
@@ -106,12 +106,26 @@
                 <th>username</th>
 
             </thead>
-            <tbody>
-            <td></td>
+        
+            {% for x in data %}
+            <tr>
+            <td>{{x.firstname}}</td>
+            <td>{{x.lastname}}</td>
+            <td>{{x.gender}}</td>
+            <td>{{x.email}}</td>
+            <td>{{x.phone}}</td>
+            <td>{{x.address}}</td>
+            <td>{{x.district}}</td>
+            <td><img src="{{x.photo}}" height="100" width="100" alt="img"></td>
+            <td>{{x.username}}</td>
+            <td><a href="/delete1/{{x.id}}">delete</a></td>
 
-            </tbody>
+            </tr>
+            {% endfor %}
         </table>
 
+        
+        <br> <br> <br>
         
         <section class="slider_section">
             <div id="myCarousel" class="carousel slide banner-main" data-ride="carousel">
