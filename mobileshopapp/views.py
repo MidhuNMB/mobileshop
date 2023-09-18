@@ -170,8 +170,7 @@ user=user_tbl.objects.filter(username=username).first()
 if user:
    
 
-    
 
 
-    
+  
 # Create your views here.
