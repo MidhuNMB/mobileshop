@@ -160,16 +160,15 @@ def delete2(request,id):
     a.delete()
     return redirect('/viewstaff/',{'data':a})
 
+def viewprofile(request):
+   return render(request,'viewuserprofile.html')
 
-    
-
-
-    
-# Create your views here.
-
-    
-
-
+def profile(request,username):
+	if request.method=='post':
+         pass
+user=user_tbl.objects.filter(username=username).first()
+if user:
+   
 
     
 
