@@ -147,7 +147,12 @@ def viewseller(request):
    return render(request,'viewseller.html',{'data':a})
 def delete1(request,id):
     a=seller_tbl.objects.get(id=id)
+    b=User.objects.get(username=a.username)
+    c=useraccount_tbl.objects.get(username=a.username)
+
     a.delete()
+    b.delete()
+    c.delete()
     return redirect('/viewseller/',{'data':a})
 
 def viewstaff(request):
@@ -160,72 +165,15 @@ def delete2(request,id):
     a.delete()
     return redirect('/viewstaff/',{'data':a})
 
+def viewprofile(request):
+   return render(request,'viewuserprofile.html')
 
-
-
-# please check
-#def viewuserprofile(request):
-    #a=request.session['username']
-    #return render(request,'viewuserprofile.html',{'a1':a})
-#def viewpro(request):
-   # a=request.session['username']
-   # a1=user_tbl.objects.get(username=a)
-    #return render(request,'viewuserprofile.html',{'a1':a1})
-def viewuserprofile(request):
-    a = request.session['username']
-    a1 = user_tbl.objects.get(username=a)
-    return render(request, 'viewuserprofile.html', {'a1': a1})
-
-#def updateseller(request,id):
-   #return render(request,'updateseller.html')
-
-
-
-
-
-
-
-
-def update1(request,id):
-    a=seller_tbl.objects.get(id=id)
-    return render(request,'updateseller.html',{'data':a})
-def updatesellerac(request,id):
-    d=seller_tbl(id=id)
+def profile(request,username):
+	if request.method=='post':
+         pass
+user=user_tbl.objects.filter(username=username).first()
+if user:
    
-    d.firstname=request.POST.get('firstname')
-    d.lastname=request.POST.get('lastname')
-    d.gender=request.POST.get('gender')
-    d.email=request.POST.get('email')
-    d.phone=request.POST.get('phone')
-    d.address=request.POST.get('address')
-    d.district=request.POST.get('district')
-    d.photo=request.FILES['photo']
-    d.username=request.POST.get('username')
-    d.save()
-    return redirect('/viewseller/')
-def update2(request,id):
-    a=staff_tbl.objects.get(id=id)
-    return render(request,'updatestaff.html',{'data':a})
-
-def updatestaffac(request,id):
-    d=staff_tbl.objects.get(id=id)
-
-    d.firstname=request.POST.get('firstname')
-    d.lastname=request.POST.get('lastname')
-    d.designation=request.POST.get('designation')
-    d.age=request.POST.get('age')
-    d.gender=request.POST.get('gender')
-    d.email=request.POST.get('email')
-    d.phone=request.POST.get('phone')
-    d.address=request.POST.get('address')
-    d.district=request.POST.get('district')
-    d.photo=request.FILES['photo']
-    d.username=request.POST.get('username')
-    d.save()
-    return render(request,'/viewstaff/')
-    
-
-
 
 
 
