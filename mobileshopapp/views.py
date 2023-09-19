@@ -147,7 +147,12 @@ def viewseller(request):
    return render(request,'viewseller.html',{'data':a})
 def delete1(request,id):
     a=seller_tbl.objects.get(id=id)
+    b=User.objects.get(username=a.username)
+    c=useraccount_tbl.objects.get(username=a.username)
+
     a.delete()
+    b.delete()
+    c.delete()
     return redirect('/viewseller/',{'data':a})
 
 def viewstaff(request):
@@ -164,10 +169,11 @@ def viewprofile(request):
    return render(request,'viewuserprofile.html')
 
 def profile(request,username):
-	if request.method=='post':
-         pass
-user=user_tbl.objects.filter(username=username).first()
-if user:
+# 	if request.method=='post':
+#          pass
+# user=user_tbl.objects.filter(username=username).first()
+# if user:
+    return render(request,'viewuserprofile.html')
    
 
 
