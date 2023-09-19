@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate
 from django.http import HttpResponse
 def index(request):
     return render(request,'index.html')
-    #return render(request,'sellerpg.html')
+   
 def createuser(request):
     return render(request,'createuser.html')
 def loginuser(request):
@@ -44,7 +44,7 @@ def createac1(request):
     a.save()
     b.save()
     c.save()
-    return redirect('/')
+    return redirect('/loginuser/')
 
 def createsellerac(request):
     d=seller_tbl()
@@ -75,7 +75,7 @@ def createsellerac(request):
     a.save()
     c.save()
     d.save()
-    return redirect('/')
+    return redirect('/adminHome/')
 
 def createstaffac(request):
     d=staff_tbl()
@@ -107,7 +107,7 @@ def createstaffac(request):
     a.save()
     c.save()
     d.save()
-    return redirect('/')
+    return redirect('/adminHome/')
     
 def login1(request):
     a=request.POST.get('username')
@@ -160,15 +160,72 @@ def delete2(request,id):
     a.delete()
     return redirect('/viewstaff/',{'data':a})
 
-def viewprofile(request):
-   return render(request,'viewuserprofile.html')
 
-def profile(request,username):
-	if request.method=='post':
-         pass
-user=user_tbl.objects.filter(username=username).first()
-if user:
+
+
+# please check
+#def viewuserprofile(request):
+    #a=request.session['username']
+    #return render(request,'viewuserprofile.html',{'a1':a})
+#def viewpro(request):
+   # a=request.session['username']
+   # a1=user_tbl.objects.get(username=a)
+    #return render(request,'viewuserprofile.html',{'a1':a1})
+def viewuserprofile(request):
+    a = request.session['username']
+    a1 = user_tbl.objects.get(username=a)
+    return render(request, 'viewuserprofile.html', {'a1': a1})
+
+#def updateseller(request,id):
+   #return render(request,'updateseller.html')
+
+
+
+
+
+
+
+
+def update1(request,id):
+    a=seller_tbl.objects.get(id=id)
+    return render(request,'updateseller.html',{'data':a})
+def updatesellerac(request,id):
+    d=seller_tbl(id=id)
    
+    d.firstname=request.POST.get('firstname')
+    d.lastname=request.POST.get('lastname')
+    d.gender=request.POST.get('gender')
+    d.email=request.POST.get('email')
+    d.phone=request.POST.get('phone')
+    d.address=request.POST.get('address')
+    d.district=request.POST.get('district')
+    d.photo=request.FILES['photo']
+    d.username=request.POST.get('username')
+    d.save()
+    return redirect('/viewseller/')
+def update2(request,id):
+    a=staff_tbl.objects.get(id=id)
+    return render(request,'updatestaff.html',{'data':a})
+
+def updatestaffac(request,id):
+    d=staff_tbl.objects.get(id=id)
+
+    d.firstname=request.POST.get('firstname')
+    d.lastname=request.POST.get('lastname')
+    d.designation=request.POST.get('designation')
+    d.age=request.POST.get('age')
+    d.gender=request.POST.get('gender')
+    d.email=request.POST.get('email')
+    d.phone=request.POST.get('phone')
+    d.address=request.POST.get('address')
+    d.district=request.POST.get('district')
+    d.photo=request.FILES['photo']
+    d.username=request.POST.get('username')
+    d.save()
+    return render(request,'/viewstaff/')
+    
+
+
 
 
 

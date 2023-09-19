@@ -41,8 +41,14 @@ urlpatterns = [
     path('delete1/<int:id>',views.delete1),
     path('viewstaff/',views.viewstaff),
     path('delete2/<int:id>',views.delete2),
-    path('viewprofile/',views.viewprofile),
-    path('profile/<username>',views.profile,name='profile'),
+    path('viewuserprofile/',views.viewuserprofile),
+    path('updatesellerac/<int:id>',views.updatesellerac),
+    path('update1/<int:id>',views.update1),
+    path('update2/<int:id>',views.update2),
+    path('updatestaffac/<int:id>',views.updatestaffac)
+    #path('viewpro/',views.viewpro)
+
+   
  
     
 ]
