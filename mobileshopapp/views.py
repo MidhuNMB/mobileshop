@@ -110,9 +110,10 @@ def createstaffac(request):
     return redirect('/adminHome/')
     
 def login1(request):
-    a=request.POST.get('username')
+    username=request.POST.get('username')
     b=request.POST.get('password')
-    data=authenticate(username=a,password=b)
+    data=authenticate(username=username,password=b)
+    request.session['username']=username
 
     if data is not None and data. is_superuser==1:
         return redirect('/adminHome/')
