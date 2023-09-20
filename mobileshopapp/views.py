@@ -204,11 +204,12 @@ def updatesellerac(request,id):
     d.username=request.POST.get('username')
     d.save()
     return redirect('/viewseller/')
+
 def update2(request,id):
     a=staff_tbl.objects.get(id=id)
     return render(request,'updatestaff.html',{'data':a})
 
-def updatesellerac(request,id):
+def updatestaffac(request,id):
     d=staff_tbl.objects.get(id=id)
 
     d.firstname=request.POST.get('firstname')
@@ -223,7 +224,16 @@ def updatesellerac(request,id):
     d.photo=request.FILES['photo']
     d.username=request.POST.get('username')
     d.save()
-    return render(request,'/viewstaff/')
+    return redirect('/viewstaff/')
+
+def logout(request):
+    return render(request,'index.html')
+
+def viewsellerprofile(request):
+
+    a = request.session['username']
+    a1 = seller_tbl.objects.get(username=a)
+    return render(request, 'viewsellerprofile.html', {'a1':a1})
     
 
 

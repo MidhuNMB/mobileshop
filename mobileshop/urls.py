@@ -45,8 +45,10 @@ urlpatterns = [
     path('updatesellerac/<int:id>',views.updatesellerac),
     path('update1/<int:id>',views.update1),
     path('update2/<int:id>',views.update2),
-    # path('updatestaffac/<int:id>',views.updatestaffac)
-    #path('viewpro/',views.viewpro)
+    path('updatestaffac/<int:id>',views.updatestaffac),
+    path('logout/',views.logout),
+    path('viewsellerprofile/',views.viewsellerprofile)
+   
 
    
  
