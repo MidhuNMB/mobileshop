@@ -49,9 +49,12 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
+                      
                         <div class="full">
                             <div class="center-desk">
+                              
                                 <div class="logo">
+                                   
                                     <a href="/index2/"><img src="{% static 'images/logo1.png' %}" alt="#"></a>
                                 </div>
                             </div>
@@ -67,17 +70,17 @@
                                         <li><a href="/viewsellerprofile/">view profile</a></li>
                                         <li>
                                             <div>   
-    <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
-        seller
-    </button>
-    <div class="dropdown-menu">
-        <a class="dropdown-item text-dark" href="/seller home/"> add seller</a>
-        <a class="dropdown-item text-dark" href="/viewseller/">view seller</a>
-       
-    </div>
-    </div>
-     </li>
-                                       
+                                        <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+                                            seller
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item text-dark" href="/seller home/"> add seller</a>
+                                            <a class="dropdown-item text-dark" href="/viewseller/">view seller</a>
+                                        
+                                        </div>
+                                        </div>
+                                        </li>
+                                                                        
                                            <li>                                  
                                               <div>   
                                             <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
@@ -90,21 +93,23 @@
                                             </div>
                                             </div></li>
 
-                                        <li><a href="/createuser/"></a></li>
-                                        <li class="last">
-                                            <a href="#"><img src="{% static 'images/search_icon.png' %}" alt="icon" /></a>
+                                        <li><a href="/">logout</a></li>
+                                        <!-- view seller and profile img -->
+                                        <li ><a href="/viewsellerprofile/">
+                                            <img src="{{ x.photo }}" alt="#" height="180" width="150" style="border-radius: 100%; float: right; margin-left: 1000px;">
+                                        </a>
                                         </li>
                                     </ul>
                                 </nav>
                             </div>
+
                         </div>
                     </div>
                     <div class="col-md-6 offset-md-6">
                         <div class="location_icon_bottum">
                             <ul>
-                                <li><img src="{% static 'icon/call.png' %}" />(+71)9876543109</li>
-                                <li><img src="{% static 'icon/email.png' %}" />demo@gmail.com</li>
-                                <li><a href="/logout/" class="text-white">log out</a></li>
+                                <!-- <li><img src="{% static 'icon/call.png' %}" />(+71)9876543109</li>
+                                <li><img src="{% static 'icon/email.png' %}" />demo@gmail.com</li> -->
                             </ul>
                         </div>
                     </div>

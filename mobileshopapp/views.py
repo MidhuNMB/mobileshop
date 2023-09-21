@@ -3,6 +3,8 @@ from mobileshopapp.models import user_tbl,useraccount_tbl,staff_tbl,seller_tbl
 from django. contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.http import HttpResponse
+from django.core.files.storage import FileSystemStorage
+
 def index(request):
     return render(request,'index.html')
    
@@ -69,7 +71,11 @@ def createsellerac(request):
     d.phone=request.POST.get('phone')
     d.address=request.POST.get('address')
     d.district=request.POST.get('district')
-    d.photo=request.FILES['photo']
+    photo=request.FILES['photo']
+    fs=FileSystemStorage()
+    image=fs.save(photo.name,photo)
+    image1=fs.url(image)
+    d.photo=image1
     d.username=request.POST.get('username')
 
     a.save()
@@ -133,15 +139,20 @@ def adminHome(request):
 def userHome(request):
     return render(request,'user.html')
 def staffHome(request):
+   
     return render(request,'createstaff.html')
 def sellerHome(request):
+    
     return render(request,'createseller.html')
 def viewseller(request):
     return render(request,'viewseller.html')
 def staffpg(request):
     return render(request,'staffpg.html')
 def sellerpg(request):
-    return render(request,'sellerpg.html')
+    a = request.session['username']
+    print(a,"test1")
+    a1 = seller_tbl.objects.get(username=a)
+    return render(request,'sellerpg.html',{'x':a1})
 
 def viewseller(request):
    a=seller_tbl.objects.all()
@@ -176,33 +187,40 @@ def viewuserprofile(request):
     a = request.session['username']
     a1 = user_tbl.objects.get(username=a)
     return render(request, 'viewuserprofile.html', {'a1': a1})
-
-#def updateseller(request,id):
-   #return render(request,'updateseller.html')
-
-
-
-
-
-
-
-
 def update1(request,id):
     a=seller_tbl.objects.get(id=id)
     return render(request,'updateseller.html',{'data':a})
 def updatesellerac(request,id):
-    d=seller_tbl(id=id)
-   
-    d.firstname=request.POST.get('firstname')
-    d.lastname=request.POST.get('lastname')
-    d.gender=request.POST.get('gender')
-    d.email=request.POST.get('email')
-    d.phone=request.POST.get('phone')
-    d.address=request.POST.get('address')
-    d.district=request.POST.get('district')
-    d.photo=request.FILES['photo']
-    d.username=request.POST.get('username')
-    d.save()
+    d=seller_tbl.objects.get(id=id)
+    try:
+        d.firstname=request.POST.get('firstname')
+        d.lastname=request.POST.get('lastname')
+        d.email=request.POST.get('email')
+        d.phone=request.POST.get('phone')
+        d.address=request.POST.get('address')
+        d.district=request.POST.get('district')
+        photo=request.FILES['photo']
+        fs=FileSystemStorage()
+        image=fs.save(photo.name,photo)
+        image1=fs.url(image)
+        d.photo=image1
+        
+        d.save()
+    except:    
+        d.firstname=request.POST.get('firstname')
+        d.lastname=request.POST.get('lastname')
+       
+        d.email=request.POST.get('email')
+        d.phone=request.POST.get('phone')
+        d.address=request.POST.get('address')
+        d.district=request.POST.get('district')
+        photo=request.FILES['photo']
+        fs=FileSystemStorage()
+        image=fs.save(photo.name,photo)
+        image1=fs.url(image)
+        d.photo=image1
+       
+        d.save()
     return redirect('/viewseller/')
 
 def update2(request,id):

@@ -53,6 +53,7 @@
                     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
                         <div class="full">
                             <div class="center-desk">
+                               
                                 <div class="logo">
                                     <a href="/index2/"><img src="{% static 'images/logo1.png' %}" alt="#"></a>
                                 </div>
@@ -131,8 +132,9 @@
                     <div class="about_box">
                         <h3>seller page</h3>
                         <span>welcome {{a1.username}}</span>
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of It is a long established fact that a reader will be distracted by the </p>
-
+                        <h2> NAME : {{ a1.firstname }}</h2>
+                        <h2>GENDER : {{ a1.gender }}</h2>
+                        <h2>EMAIL : {{ a1.email }} </h2>
                     </div>
                
             </div>
