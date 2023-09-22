@@ -108,7 +108,11 @@ def createstaffac(request):
     d.phone=request.POST.get('phone')
     d.address=request.POST.get('address')
     d.district=request.POST.get('district')
-    d.photo=request.FILES['photo']
+    photo=request.FILES['photo']
+    fs=FileSystemStorage()
+    image=fs.save(photo.name,photo)
+    image1=fs.url(image)
+    d.photo=image1
     d.username=request.POST.get('username')
     a.save()
     c.save()
@@ -239,7 +243,11 @@ def updatestaffac(request,id):
     d.phone=request.POST.get('phone')
     d.address=request.POST.get('address')
     d.district=request.POST.get('district')
-    d.photo=request.FILES['photo']
+    photo=request.FILES['photo']
+    fs=FileSystemStorage()
+    image=fs.save(photo.name,photo)
+    image1=fs.url(image)
+    d.photo=image1
     d.username=request.POST.get('username')
     d.save()
     return redirect('/viewstaff/')
