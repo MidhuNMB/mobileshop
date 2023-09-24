@@ -74,26 +74,12 @@
         seller
     </button>
     <div class="dropdown-menu">
-        <a class="dropdown-item text-dark" href="/seller home/"> add seller</a>
-        <a class="dropdown-item text-dark" href="/viewseller/">view seller</a>
-       
+        <a class="dropdown-item text-dark" href="/#/"> add products</a>
+        <a class="dropdown-item text-dark" href="/#/">update products</a>
+    
     </div>
-    </div>
-     </li>
-                                       
-                                           <li>                                  
-                                              <div>   
-                                            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
-                                                staff
-                                            </button>
-                                            <div class="dropdown-menu">
-                                                <a class="dropdown-item text-dark" href="/staff home/"> add staff</a>
-                                                <a class="dropdown-item text-dark" href="/viewstaff/">view staff</a>
-                                                
-                                            </div>
-                                            </div></li>
 
-                                        <li><a href="/createuser/"></a></li>
+    <li><a href="/logout/" class="text-white">log out</a></li>
                                         <li class="last">
                                             <a href="#"><img src="{% static 'images/search_icon.png' %}" alt="icon" /></a>
                                         </li>
@@ -105,9 +91,10 @@
                     <div class="col-md-6 offset-md-6">
                         <div class="location_icon_bottum">
                             <ul>
-                                <li><img src="{% static 'icon/call.png' %}" />(+71)9876543109</li>
+                                <!--<li><img src="{% static 'icon/call.png' %}" />(+71)9876543109</li>
                                 <li><img src="{% static 'icon/email.png' %}" />demo@gmail.com</li>
-                                <li><img src="{% static 'icon/loc.png' %}" />Location</li>
+                                <li><img src="{% static 'icon/loc.png' %}" />Location</li>-->
+                                <img src="{{ a1.photo }}" alt="#" height="150" width="150" style="border-radius: 100%; float: right; margin-left: 1000px;">
                             </ul>
                         </div>
                     </div>
@@ -135,8 +122,13 @@
                         <h2> NAME : {{ a1.firstname }}</h2>
                         <h2>GENDER : {{ a1.gender }}</h2>
                         <h2>EMAIL : {{ a1.email }} </h2>
+                        <h2>phone: {{a1.phone}}</h2>
+                        <h2>addres:{{a1.address}}</h2>
+                        <h2>district:{{a1.district}}</h2>
                     </div>
-               
+              <button class="btn btn-danger" style="float: right; margin-left: 20px;"><a href="/deleteSeller/{{a1.id}}">delete</a></button>
+
+              <button class="btn btn-primary" style="float: right;"><a href="/update1/{{a1.id}}">update</a></button>
             </div>
         </div>
     </div>

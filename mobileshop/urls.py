@@ -47,7 +47,11 @@ urlpatterns = [
     path('update2/<int:id>',views.update2),
     path('updatestaffac/<int:id>',views.updatestaffac),
     path('logout/',views.logout),
-    path('viewsellerprofile/',views.viewsellerprofile)
+    path('viewsellerprofile/',views.viewsellerprofile),
+    path('deleteSeller/<int:id>',views.deleteSeller),
+    path('viewstaffpro/',views.viewstaffpro),
+    path('updateuser/<int:id>',views.updateuser),
+    path('updateuserac/<int:id>',views.updateuserac)
    
 
    
