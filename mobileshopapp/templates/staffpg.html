@@ -64,14 +64,18 @@
                             <div class="limit-box">
                                 <nav class="main-menu">
                                     <ul class="menu-area-main">
-                                        <li class="active"> <a href="/index1/">Home</a> </li>
+                                        <li class="active"> <a href="/staffpg/">Home</a> </li>
                                         <li> <a href="about.html">About</a> </li>
                                         <li><a href="brand.html">Brand</a></li>
                                         <li><a href="/viewstaffpro/">view profile</a></li>
-                                        <li class="last">
-                                            <a href="#"><img src="{% static 'images/search_icon.png' %}" alt="icon" /></a>
-                                        </li>
+                                        <li><a href="/logout/" class="text-white">log out</a></li></li>
+                                        
+                                        
+                                        <li class="last"></li>
+
+                                        
                                     </ul>
+                                   
                                 </nav>
                             </div>
                         </div>
@@ -79,9 +83,10 @@
                     <div class="col-md-6 offset-md-6">
                         <div class="location_icon_bottum">
                             <ul>
-                                <li><img src="{% static 'icon/call.png' %}" />(+71)9876543109</li>
+                              <!-- <li><img src="{% static 'icon/call.png' %}" />(+71)9876543109</li>
                                 <li><img src="{% static 'icon/email.png' %}" />demo@gmail.com</li>
-                                <li><a href="/logout/" class="text-white">log out</a></li>
+                                <li><a href="/logout/" class="text-white">log out</a></li>--> 
+                                <a href="/viewstaffpro/">  <img src="{{a1.photo}}" alt="#" height="150" width="150" style="border-radius: 100%; float: right; margin-left: 1000px;"></a>
                                 
                             </ul>
                         </div>
@@ -94,6 +99,8 @@
     <!-- end header -->
 
     <h1>staff page</h1>
+    
+    
     
     <section class="slider_section">
         <div id="myCarousel" class="carousel slide banner-main" data-ride="carousel">

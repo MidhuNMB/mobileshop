@@ -184,7 +184,7 @@ def delete2(request,id):
     a.delete()
     b.delete()  
     c.delete()
-    return redirect('/viewstaff/',{'data':a})
+    return redirect('/loginuser/',{'data':a})
 
 def deleteSeller(request,id):
     a=seller_tbl.objects.get(id=id)
@@ -230,11 +230,7 @@ def updatesellerac(request,id):
         d.phone=request.POST.get('phone')
         d.address=request.POST.get('address')
         d.district=request.POST.get('district')
-        photo=request.FILES['photo']
-        fs=FileSystemStorage()
-        image=fs.save(photo.name,photo)
-        image1=fs.url(image)
-        d.photo=image1
+       
        
         d.save()
     return redirect('/viewsellerprofile/')
@@ -243,25 +239,38 @@ def update2(request,id):
     a=staff_tbl.objects.get(id=id)
     return render(request,'updatestaff.html',{'data':a})
 
+
 def updatestaffac(request,id):
     d=staff_tbl.objects.get(id=id)
+    try:
 
-    d.firstname=request.POST.get('firstname')
-    d.lastname=request.POST.get('lastname')
-    d.designation=request.POST.get('designation')
-    d.age=request.POST.get('age')
-    d.gender=request.POST.get('gender')
-    d.email=request.POST.get('email')
-    d.phone=request.POST.get('phone')
-    d.address=request.POST.get('address')
-    d.district=request.POST.get('district')
-    photo=request.FILES['photo']
-    fs=FileSystemStorage()
-    image=fs.save(photo.name,photo)
-    image1=fs.url(image)
-    d.photo=image1
-    d.username=request.POST.get('username')
-    d.save()
+        d.firstname=request.POST.get('firstname')
+        d.lastname=request.POST.get('lastname')
+        d.designation=request.POST.get('designation')
+        d.age=request.POST.get('age')
+        d.gender=request.POST.get('gender')
+        d.email=request.POST.get('email')
+        d.phone=request.POST.get('phone')
+        d.address=request.POST.get('address')
+        d.district=request.POST.get('district')
+        photo=request.FILES['photo']
+        fs=FileSystemStorage()
+        image=fs.save(photo.name,photo)
+        image1=fs.url(image)
+        d.photo=image1
+        d.username=request.POST.get('username')
+        d.save()
+    except:
+        d.firstname=request.POST.get('firstname')
+        d.lastname=request.POST.get('lastname')
+        d.designation=request.POST.get('designation')
+        d.age=request.POST.get('age')
+        d.gender=request.POST.get('gender')
+        d.email=request.POST.get('email')
+        d.phone=request.POST.get('phone')
+        d.address=request.POST.get('address')
+        d.district=request.POST.get('district')
+
     return redirect('/viewstaffpro/')
 
 def logout(request):
@@ -311,14 +320,19 @@ def updateuserac(request,id):
         b.phone=request.POST.get('phone')
         b.address=request.POST.get('address')
         b.district=request.POST.get('district')
-        photo=request.FILES['photo']
-        fs=FileSystemStorage()
-        image=fs.save(photo.name,photo)
-        image1=fs.url(image)
-        b.photo=image1
        
         b.save()
-        return redirect('/viewuserprofile.html/')
+    return redirect('/userHome/')
+
+def deleteuser(request,id):
+    a=user_tbl.objects.get(id=id)
+    b=User.objects.get(username=a.username)
+    c=useraccount_tbl.objects.get(username=a.username)
+    a.delete()
+    b.delete()
+    c.delete()
+    return redirect('/loginuser/',{'a1':a})
+
 
 
 

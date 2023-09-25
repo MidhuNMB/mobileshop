@@ -51,7 +51,8 @@ urlpatterns = [
     path('deleteSeller/<int:id>',views.deleteSeller),
     path('viewstaffpro/',views.viewstaffpro),
     path('updateuser/<int:id>',views.updateuser),
-    path('updateuserac/<int:id>',views.updateuserac)
+    path('updateuserac/<int:id>',views.updateuserac),
+    path('deleteuser/<int:id>',views.deleteuser)
    
 
    
