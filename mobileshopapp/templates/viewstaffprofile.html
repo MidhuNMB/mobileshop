@@ -43,18 +43,18 @@
         <div class="loader"><img src="{% static 'images/loading13.gif' %}" alt="#" /></div>
     </div>
     <!-- end loader -->
-      <!-- header inner -->
+    <!-- header -->
+    <header>
+        <!-- header inner -->
         <div class="header">
 
             <div class="container">
                 <div class="row">
                     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
-                      
                         <div class="full">
                             <div class="center-desk">
-                              
+                               
                                 <div class="logo">
-                                   
                                     <a href="/index2/"><img src="{% static 'images/logo1.png' %}" alt="#"></a>
                                 </div>
                             </div>
@@ -65,41 +65,46 @@
                             <div class="limit-box">
                                 <nav class="main-menu">
                                     <ul class="menu-area-main">
-                                        <li class="active"> <a href="/sellerpg/">Home</a> </li>
+                                        <li class="active"> <a href="/staffpg/">Home</a> </li>
                                         <li> <a href="about.html">About</a> </li>
-                                        <li><a href="/viewsellerprofile/">view profile</a></li>
+                                        <li><a href="brand.html">Brand</a></li>
                                         <li>
                                             <div>   
-                                        <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
-                                            add products
-                                        </button>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item text-dark" href="/#/"> add products</a>
-                                            <a class="dropdown-item text-dark" href="/#/">update products</a>
-                                            
-                                        
-                                        </div>
-                                        </div>
-                                        </li>
+  
+    </div>
+     </li>
+                                       
+                                           <li>                                  
+                                              <div>   
+                                            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+                                                staff
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item text-dark" href="/staff home/"> add staff</a>
+                                                <a class="dropdown-item text-dark" href="/viewstaff/">view staff</a>
+                                                
+                                            </div>
+                                            </div></li>
 
+                                        <li><a href="/createuser/"></a></li>
+                                        <li class="last">
+                                            <a href="#"><img src="{% static 'images/search_icon.png' %}" alt="icon" /></a>
+                                        </li>
                                         
-                                        <!-- view seller and profile img -->
-                                        <li ><a href="/viewsellerprofile/">view profile</a></li>
-                                        <li><a href="/">logout</a></li>
-                                      <a href="/viewsellerprofile/">  <img src="{{ x.photo }}" alt="#" height="150" width="150" style="border-radius: 100%; float: right; margin-left: 1000px;"></a>
                                     </ul>
-                                   
-                                        
                                 </nav>
                             </div>
-
                         </div>
                     </div>
                     <div class="col-md-6 offset-md-6">
                         <div class="location_icon_bottum">
                             <ul>
-                                <!-- <li><img src="{% static 'icon/call.png' %}" />(+71)9876543109</li>
-                                <li><img src="{% static 'icon/email.png' %}" />demo@gmail.com</li> -->
+                                <!--<li><img src="{% static 'icon/call.png' %}" />(+71)9876543109</li>
+                                <li><img src="{% static 'icon/email.png' %}" />demo@gmail.com</li>
+                                <li><img src="{% static 'icon/loc.png' %}" />Location</li>-->
+
+                                <!--this is not workin -->
+                              <a href="/viewstaffpro/">  <img src="{{a1.photo}}" alt="#" height="150" width="150" style="border-radius: 100%; float: right; margin-left: 1000px;"></a>
                             </ul>
                         </div>
                     </div>
@@ -110,73 +115,9 @@
     </header>
     <!-- end header -->
 
-    <h1>seller page</h1>
     
-    <section class="slider_section">
-        <div id="myCarousel" class="carousel slide banner-main" data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="first-slide" src="{% static 'images/banner.jpg' %}" alt="First slide">
-                    <div class="container">
-                        <div class="carousel-caption relative">
-                            <span>All New Phones </span>
-                            <h1>up to 25% Flat Sale</h1>
-                            <p>It is a long established fact that a reader will be distracted by the readable content
-                                <br> of a page when looking at its layout. The point of using Lorem Ipsum is that</p>
-                            <a class="buynow" href="{% static '#' %}">Buy Now</a>
-                            <ul class="social_icon">
-                                <li> <a href="#"><i class="fa fa-facebook-f"></i></a></li>
-                                <li> <a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li> <a href="#"><i class="fa fa-instagram"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img class="second-slide" src="{% static 'images/banner.jpg' %}" alt="Second slide">
-                    <div class="container">
-                        <div class="carousel-caption relative">
-                            <span>All New Phones </span>
-                            <h1>up to 25% Flat Sale</h1>
-                            <p>It is a long established fact that a reader will be distracted by the readable content
-                                <br> of a page when looking at its layout. The point of using Lorem Ipsum is that</p>
-                            <a class="buynow" href="#">Buy Now</a>
-                            <ul class="social_icon">
-                                <li> <a href="#"><i class="fa fa-facebook-f"></i></a></li>
-                                <li> <a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li> <a href="#"><i class="fa fa-instagram"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img class="third-slide" src="{% static 'images/banner.jpg' %}" alt="Third slide">
-                    <div class="container">
-                        <div class="carousel-caption relative">
-                            <span>All New Phones </span>
-                            <h1>up to 25% Flat Sale</h1>
-                            <p>It is a long established fact that a reader will be distracted by the readable content
-                                <br> of a page when looking at its layout. The point of using Lorem Ipsum is that</p>
-                            <a class="buynow" href="#">Buy Now</a>
-                            <ul class="social_icon">
-                                <li> <a href="#"><i class="fa fa-facebook-f"></i></a></li>
-                                <li> <a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li> <a href="#"><i class="fa fa-instagram"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-                <i class='fa fa-angle-left'></i>
-            </a>
-            <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-                <i class='fa fa-angle-right'></i>
-            </a>
-        </div>
-    </section>
-    <!-- about -->
-    <div class="about">
+       <!-- about -->
+       <div class="about">
         <div class="container">
             <div class="row">
                 <div class="col-xl-5 col-lg-5 col-md-5 co-sm-l2">
@@ -186,18 +127,24 @@
                 </div>
                 <div class="col-xl-7 col-lg-7 col-md-7 co-sm-l2">
                     <div class="about_box">
-                        <h3>About Us</h3>
-                        <span>Our Mobile Shop</span>
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of It is a long established fact that a reader will be distracted by the </p>
-
+                        <h3>seller page</h3>
+                        <span>welcome {{a1.username}}</span>
+                        <h2> NAME : {{ a1.firstname }}</h2>
+                        <h2>GENDER : {{ a1.gender }}</h2>
+                        <h2>EMAIL : {{ a1.email }} </h2>
+                        <h2>phone: {{a1.phone}}</h2>
+                        <h2>addres:{{a1.address}}</h2>
+                        <h2>district:{{a1.district}}</h2>
                     </div>
-               
+              <button class="btn btn-danger" style="float: right; margin-left: 20px;"><a href="/delete2/{{a1.id}}">delete</a></button>
+
+              <button class="btn btn-primary" style="float: right;"><a href="/update2/{{a1.id}}">update</a></button>
             </div>
         </div>
     </div>
     </div>
     <!-- end about -->
-    
+   
 
   
               

@@ -64,12 +64,19 @@
                             <div class="limit-box">
                                 <nav class="main-menu">
                                     <ul class="menu-area-main">
-                                        <li class="active"> <a href="/index1/">Home</a> </li>
+                                        <li class="active"> <a href="/userHome/">Home</a> </li>
                                         <li> <a href="about.html">About</a> </li>
                                         <li><a href="/viewuserprofile/">view profile</a></li>
-                                        <li><a href="/createuser/">/</a></li>
+                                        <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+                                            products
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item text-dark" href="/viewproduct/">view product</a>
+                                            <a class="dropdown-item text-dark" href="/orderedproduct/">orderd product</a>
+                                           
+                                        </div>
                                         <li class="last">
-                                            <a href="#"><img src="{% static 'images/search_icon.png' %}" alt="icon" /></a>
+                                            <a href=""><img src="{% static 'images/search_icon.png' %}" alt="icon" /></a>
                                         </li>
                                     </ul>
                                 </nav>
@@ -82,6 +89,8 @@
                                 <li><img src="{% static 'icon/call.png' %}" />(+71)9876543109</li>
                                 <li><img src="{% static 'icon/email.png' %}" />demo@gmail.com</li>
                                 <li><a href="/logout/" class="text-white">log out</a></li>
+                               <a href="/viewuserprofile/"><img src="{{ x.photo }}" alt="#" height="150" width="150" style="border-radius: 100%; float: right; margin-left: 1000px;"></a> 
+                            </a>
                             </ul>
                         </div>
                     </div>
