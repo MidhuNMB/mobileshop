@@ -52,7 +52,9 @@ urlpatterns = [
     path('viewstaffpro/',views.viewstaffpro),
     path('updateuser/<int:id>',views.updateuser),
     path('updateuserac/<int:id>',views.updateuserac),
-    path('deleteuser/<int:id>',views.deleteuser)
+    path('deleteuser/<int:id>',views.deleteuser),
+    path('addproduct/',views.addproduct),
+    path('addprotbl/',views.addprotbl)
    
 
    

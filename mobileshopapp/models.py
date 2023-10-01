@@ -46,6 +46,16 @@ class staff_tbl(models.Model):
     class meta:
         db_tbl='staff_tbl'
 
+class product_tbl(models.Model):
+    name=models.CharField(max_length=500)
+    colour=models.CharField(max_length=500)
+    description=models.CharField(max_length=500)
+    price=models.CharField(max_length=500)
+    photo=models.CharField(max_length=50)
+    class meta:
+        db_tbl='product_tbl'
+
+
 
 
 

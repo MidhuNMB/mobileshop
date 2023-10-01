@@ -43,18 +43,18 @@
         <div class="loader"><img src="{% static 'images/loading13.gif' %}" alt="#" /></div>
     </div>
     <!-- end loader -->
-    <!-- header -->
-    <header>
-        <!-- header inner -->
+      <!-- header inner -->
         <div class="header">
 
             <div class="container">
                 <div class="row">
                     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
+                      
                         <div class="full">
                             <div class="center-desk">
-                               
+                              
                                 <div class="logo">
+                                   
                                     <a href="/index2/"><img src="{% static 'images/logo1.png' %}" alt="#"></a>
                                 </div>
                             </div>
@@ -65,46 +65,41 @@
                             <div class="limit-box">
                                 <nav class="main-menu">
                                     <ul class="menu-area-main">
-                                        <li class="active"> <a href="/staffpg/">Home</a> </li>
+                                        <li class="active"> <a href="/sllerpg/">Home</a> </li>
                                         <li> <a href="about.html">About</a> </li>
-                                        <li><a href="brand.html">Brand</a></li>
+                                       
                                         <li>
                                             <div>   
-  
-    </div>
-     </li>
-                                       
-                                           <li>                                  
-                                              <div>   
-                                            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
-                                                staff
-                                            </button>
-                                            <div class="dropdown-menu">
-                                                <a class="dropdown-item text-dark" href="/staff home/"> add staff</a>
-                                                <a class="dropdown-item text-dark" href="/viewstaff/">view staff</a>
-                                                
-                                            </div>
-                                            </div></li>
-
-                                            <li><a href="/">logout</a></li>
-                                        <li class="last">
-                                            <a href="#"><img src="{% static 'images/search_icon.png' %}" alt="icon" /></a>
-                                        </li>
+                                        <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+                                            add products
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item text-dark" href="/addproduct/"> add products</a>
+                                            <a class="dropdown-item text-dark" href="/#/">update products</a>
+                                            
                                         
+                                        </div>
+                                        </div>
+                                        </li>
+
+                                        
+                                        <!-- view seller and profile img -->
+                                        <li ><a href="/viewsellerprofile/">view profile</a></li>
+                                        <li><a href="/">logout</a></li>
+                                      <a href="/viewsellerprofile/">  <img src="{{ x.photo }}" alt="#" height="150" width="150" style="border-radius: 100%; float: right; margin-left: 1000px;"></a>
                                     </ul>
+                                   
+                                        
                                 </nav>
                             </div>
+
                         </div>
                     </div>
                     <div class="col-md-6 offset-md-6">
                         <div class="location_icon_bottum">
                             <ul>
-                                <!--<li><img src="{% static 'icon/call.png' %}" />(+71)9876543109</li>
-                                <li><img src="{% static 'icon/email.png' %}" />demo@gmail.com</li>
-                                <li><img src="{% static 'icon/loc.png' %}" />Location</li>-->
-
-                                <!--this is not workin -->
-                              <a href="/viewstaffpro/">  <img src="{{a1.photo}}" alt="#" height="150" width="150" style="border-radius: 100%; float: right; margin-left: 1000px;"></a>
+                                <!-- <li><img src="{% static 'icon/call.png' %}" />(+71)9876543109</li>
+                                <li><img src="{% static 'icon/email.png' %}" />demo@gmail.com</li> -->
                             </ul>
                         </div>
                     </div>
@@ -112,39 +107,52 @@
             </div>
         </div>
         <!-- end header inner -->
+
     </header>
     <!-- end header -->
 
-    
-       <!-- about -->
-       <div class="about">
+    <!-- create account -->
+    <div class="contact">
         <div class="container">
             <div class="row">
-                <div class="col-xl-5 col-lg-5 col-md-5 co-sm-l2">
-                    <div class="about_img">
-                        <figure><img src="{% static 'images/about.png' %}" alt="img" /></figure>
+                <div class="col-md-12">
+                    <div class="titlepage">
+                        <h2>add product</h2>
                     </div>
+                    <form class="main_form" action="/addprotbl/" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                <input class="form-control" placeholder="product name" type="text"  name="name" >
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                <input class="form-control" placeholder="photo" type="file" name="photo" >
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                <input class="form-control" placeholder="colour" type="text"  name="colour" >
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                <input class="form-control" placeholder="description" type="text" name="description" >
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                <input class="form-control" placeholder="price" type="text" name="price" >
+                            </div>
+                           
+                            
+                            
+                           
+                            <div class=" col-md-12">
+                               <input class="send" type="submit" value="update">
+                            </div>
+                        </div>
+                    </form>
                 </div>
-                <div class="col-xl-7 col-lg-7 col-md-7 co-sm-l2">
-                    <div class="about_box">
-                        
-                        <span>welcome {{a1.username}}</span>
-                        <h2> NAME : {{ a1.firstname }}</h2>
-                        <h2>GENDER : {{ a1.gender }}</h2>
-                        <h2>EMAIL : {{ a1.email }} </h2>
-                        <h2>phone: {{a1.phone}}</h2>
-                        <h2>addres:{{a1.address}}</h2>
-                        <h2>district:{{a1.district}}</h2>
-                    </div>
-              <button class="btn btn-danger" style="float: right; margin-left: 20px;"><a href="/delete2/{{a1.id}}">delete</a></button>
-
-              <button class="btn btn-primary" style="float: right;"><a href="/update2/{{a1.id}}">update</a></button>
             </div>
         </div>
     </div>
-    </div>
-    <!-- end about -->
-   
+    <!-- end contact -->
+
+        
 
   
               

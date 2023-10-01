@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from mobileshopapp.models import user_tbl,useraccount_tbl,staff_tbl,seller_tbl
+from mobileshopapp.models import user_tbl,useraccount_tbl,staff_tbl,seller_tbl,product_tbl
 from django. contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.http import HttpResponse
@@ -332,6 +332,23 @@ def deleteuser(request,id):
     b.delete()
     c.delete()
     return redirect('/loginuser/',{'a1':a})
+
+def addproduct(request):
+    return render( request,'addproduct.html')
+def addprotbl(request):
+    a=product_tbl()
+    a.name=request.POST.get('name')
+    photo=request.FILES['photo']
+    fs=FileSystemStorage()
+    image=fs.save(photo.name,photo)
+    image1=fs.url(image)
+    a.photo=image1
+    a.colour=request.POST.get('colour')
+    a.description=request.POST.get('description')
+    a.price=request.POST.get('price')
+    
+    a.save()
+    return redirect('/addproduct/')
 
 
 
