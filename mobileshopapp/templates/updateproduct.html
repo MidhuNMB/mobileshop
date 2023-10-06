@@ -66,7 +66,6 @@
                                 <nav class="main-menu">
                                     <ul class="menu-area-main">
                                         <li class="active"> <a href="/sllerpg/">Home</a> </li>
-                                        <li> <a href="about.html">About</a> </li>
                                        
                                         <li>
                                             <div>   
@@ -117,25 +116,25 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="titlepage">
-                        <h2>add product</h2>
+                        <h2>update product</h2>
                     </div>
-                    <form class="main_form" action="/addprotbl/" method="post" enctype="multipart/form-data">
+                    <form class="main_form" action="/updateprotbl/{{data.id}}" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
                         <div class="row">
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                                <input class="form-control" placeholder="product name" type="text"  name="name" >
+                                <input class="form-control" placeholder="product name" type="text"  name="name" value="{{data.name}}" >
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                                <input class="form-control" placeholder="photo" type="file" name="photo" >
+                                <input class="form-control" placeholder="photo" type="file" name="photo" value="{{data.photo}}" >
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                                <input class="form-control" placeholder="colour" type="text"  name="colour" >
+                                <input class="form-control" placeholder="colour" type="text"  name="colour" value="{{data.colour}}" >
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                                <input class="form-control" placeholder="description" type="text" name="description" >
+                                <input class="form-control" placeholder="description" type="text" name="description" value="{{data.description}}" >
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                                <input class="form-control" placeholder="price" type="text" name="price" >
+                                <input class="form-control" placeholder="price" type="text" name="price"  value="{{data.price}}">
                             </div>
                            
                             

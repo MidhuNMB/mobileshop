@@ -54,7 +54,12 @@ urlpatterns = [
     path('updateuserac/<int:id>',views.updateuserac),
     path('deleteuser/<int:id>',views.deleteuser),
     path('addproduct/',views.addproduct),
-    path('addprotbl/',views.addprotbl)
+    path('addprotbl/',views.addprotbl),
+    path('viewproduct/',views.viewprod),
+    path('updateproduct/<int:id>',views.updateproduct),
+    path('updateprotbl/<int:id>',views.updateprotbl),
+    path('deleteproduct/<int:id>',views.deletepro)
+
    
 
    

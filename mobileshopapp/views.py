@@ -349,6 +349,41 @@ def addprotbl(request):
     
     a.save()
     return redirect('/addproduct/')
+def viewprod(request):
+    return render(request,'viewproduct.html')
+def viewprod(request):
+    a=product_tbl.objects.all()
+    return render(request,'viewproduct.html',{'data':a})
+
+def updateproduct(request,id):
+    a=product_tbl.objects.get(id=id)
+    return render(request,'updateproduct.html',{'data':a})
+
+def updateprotbl(request,id):
+    a=product_tbl.objects.get(id=id)
+    try:
+        a.name=request.POST.get('name')
+        photo=request.FILES['photo']
+        fs=FileSystemStorage()
+        image=fs.save(photo.name,photo)
+        image1=fs.url(image)
+        a.photo=image1
+        a.colour=request.POST.get('colour')
+        a.description=request.POST.get('description')
+        a.price=request.POST.get('price')
+    except:
+        a.name=request.POST.get('name')
+        a.colour=request.POST.get('colour')
+        a.description=request.POST.get('description')
+        a.price=request.POST.get('price')
+
+        a.save()
+        return redirect('/viewproduct/')
+def deletepro(request,id):
+    a=product_tbl.objects.get(id=id)
+    a.delete()
+    return redirect('/viewproduct/',{'data':a})
+
 
 
 

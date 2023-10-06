@@ -65,7 +65,8 @@
                             <div class="limit-box">
                                 <nav class="main-menu">
                                     <ul class="menu-area-main">
-                                        <li class="active"> <a href="/sllerpg/">Home</a> </li>
+                                        
+                                        <li class="active"> <a href="/sellerpg/">Home</a> </li>
                                         <li> <a href="about.html">About</a> </li>
                                        
                                         <li>
@@ -111,48 +112,36 @@
     </header>
     <!-- end header -->
 
-    <!-- create account -->
-    <div class="contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="titlepage">
-                        <h2>add product</h2>
-                    </div>
-                    <form class="main_form" action="/addprotbl/" method="post" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        <div class="row">
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                                <input class="form-control" placeholder="product name" type="text"  name="name" >
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                                <input class="form-control" placeholder="photo" type="file" name="photo" >
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                                <input class="form-control" placeholder="colour" type="text"  name="colour" >
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                                <input class="form-control" placeholder="description" type="text" name="description" >
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                                <input class="form-control" placeholder="price" type="text" name="price" >
-                            </div>
-                           
-                            
-                            
-                           
-                            <div class=" col-md-12">
-                               <input class="send" type="submit" value="update">
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- end contact -->
+    <h1>seller page</h1>
+    
+    <table class="table table-bordered">
+        <thead>
+            <th>name</th>
+            <th>colour</th>
+            <th>description</th>
+            <th>price</th>
+            <th>photo</th>
+            
 
-        
+        </thead>
+    
+        {% for x in data %}
+        <tr>
+        <td>{{x.name}}</td>
+        <td>{{x.colour}}</td>
+        <td>{{x.description}}</td>
+        <td>{{x.price}}</td>
+        <td><img src="{{x.photo}}" height="100" width="100" alt="img"></td>
+        <td>{{x.username}}</td>
+        <td><a href="/deleteproduct/{{x.id}}">delete</a></td>
+        <td><a href="/updateproduct/{{x.id}}">update</a></td>
+
+        </tr>
+        {% endfor %}
+    </table>
+
+    
+    <br> <br> <br>
 
   
               
