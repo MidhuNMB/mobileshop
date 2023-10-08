@@ -55,6 +55,14 @@ class product_tbl(models.Model):
     class meta:
         db_tbl='product_tbl'
 
+class cart_tbl(models.Model):
+    photo=models.CharField(max_length=500)
+    productname=models.CharField(max_length=500)
+    quantity=models.CharField(max_length=500)
+
+    class meta:
+        db_tbl='cart_tbl'
+
 
 
 
