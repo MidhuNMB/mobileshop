@@ -384,6 +384,9 @@ def deletepro(request,id):
     a.delete()
     return redirect('/viewproduct/',{'data':a})
 
+def cartpg(request):
+    return render(request,'cart.html')
+
 
 
 

@@ -58,7 +58,8 @@ urlpatterns = [
     path('viewproduct/',views.viewprod),
     path('updateproduct/<int:id>',views.updateproduct),
     path('updateprotbl/<int:id>',views.updateprotbl),
-    path('deleteproduct/<int:id>',views.deletepro)
+    path('deleteproduct/<int:id>',views.deletepro),
+    path('cartpg/',views.cartpg)
 
    
 
