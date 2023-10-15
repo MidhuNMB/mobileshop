@@ -387,6 +387,32 @@ def deletepro(request,id):
 def cartpg(request):
     return render(request,'cart.html')
 
+ #def addtocart(request,id):
+    if request.user.is_authenticated():
+            try:
+                book = Book.objects.get(id=id)
+            except ObjectDoesNotExist:
+                pass
+            else :
+                try:
+                    cart = Cart.objects.get(user = request.user, active = True)
+                except ObjectDoesNotExist:
+                    cart = Cart.objects.create(user = request.user)
+                    cart.save()
+                    cart.add_to_cart(book_id)
+                    return redirect('cart')
+                else:
+                    return redirect('index')
+                
+def addtocart(request,id):
+    request.session['username']
+    a=product_tbl.objects.get(id=id)
+    return render(request,'cart.html',{'x':a})
+def viewcart(request):
+
+
+
+
 
 
 

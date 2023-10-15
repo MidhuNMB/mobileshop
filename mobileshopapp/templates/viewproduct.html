@@ -133,9 +133,11 @@
         <td>{{x.price}}</td>
         <td><img src="{{x.photo}}" height="100" width="100" alt="img"></td>
         <td>{{x.username}}</td>
-        <td><a href="/deleteproduct/{{x.id}}">delete</a></td>
-        <td><a href="/updateproduct/{{x.id}}">update</a></td>
-
+        <td><a class="btn btn-outline-secondary" href="/deleteproduct/{{x.id}}">delete</a></td>
+        <td><a class="btn btn-outline-secondary" href="/updateproduct/{{x.id}}">update</a></td>
+        <td><a href="/addtocart/" class="btn btn-primary" >add to cart</a></td>
+        
+        
         </tr>
         {% endfor %}
     </table>

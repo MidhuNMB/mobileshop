@@ -105,31 +105,59 @@
     <!-- end header -->
 
     <h1>user page</h1><br> <br>
+
+    <div class="row">
+        <div class="col-md-4" id="product-1">
+            <img src="img1.jpg" /><br />
+            <h2>Product 1</h2>
+        <button class="button">+</button>
+        <button class="button">-</button>
+            <input type="number" class="input" value="1" min="1" />
+            <a href="product.php?add-to-cart=1" data-id="1" data-quantity="1" class="add-to-cart ajax product-1">Add to Cart</a>
+        </div>
+        
+        <div class="col-md-4" id="product-2">
+            <img src="img2.jpg" /><br />
+            <h2>Product 2</h2>
+        <button class="button">+</button>
+        <button class="button">-</button>
+            <input type="number" class="input" value="1" min="1" />
+            <a href="product.php?add-to-cart=2" data-id="2" data-quantity="1" class="add-to-cart ajax product-2">Add to Cart</a>
+        </div>
+        
+        <div class="col-md-4" id="product-3">
+            <img src="img3.jpg" /><br />
+            <h2>Product 3</h2>
+        <button class="button">+</button>
+        <button class="button">-</button>
+            <input type="number" class="input" value="1" min="1" />
+            <a href="product.php?add-to-cart=3" data-id="3" data-quantity="1" class="add-to-cart ajax product-2">Add to Cart</a>
+        </div>
+        
+        <div class="col-md-4" id="product-4">
+            <img src="img4.jpg" /><br />
+            <h2>Product 4</h2>
+        <button class="button">+</button>
+        <button class="button">-</button>
+            <input type="number" class="input" value="1" min="1" />
+            <a href="product.php?add-to-cart=4" data-id="4" data-quantity="1" class="add-to-cart ajax product-4">Add to Cart</a>
+        </div>
+    </div>
    
 
     <table class="table table-bordered">
         <thead>
-            <th>first_name</th>
-            <th>last_name</th>
-            <th>gender</th>
-            <th>email</th>
-            <th>phone</th>
-            <th>address</th>
-            <th>district</th>
-            <th>img</th>
-            <th>username</th>
+            <th>product_name</th>
+            <th>photo</th>
+            <th>quantity</th>
 
         </thead>
     
         {% for x in data %}
         <tr>
-        <td>{{x.firstname}}</td>
+        <td>{{x.productname}}</td>
         <td>{{x.lastname}}</td>
         <td>{{x.gender}}</td>
-        <td>{{x.email}}</td>
-        <td>{{x.phone}}</td>
-        <td>{{x.address}}</td>
-        <td>{{x.district}}</td>
         <td><img src="{{x.photo}}" height="100" width="100" alt="img"></td>
         <td>{{x.username}}</td>
         <td><a href="/delete1/{{x.id}}">delete</a></td>
@@ -212,6 +240,28 @@
                 $(this).removeClass('transition');
             });
         });
+    </script>
+    <script>
+        $(function() {
+ $(".button").on("click", function() {
+   var $button = $(this);
+   var $parent = $button.parent(); 
+   var oldValue = $parent.find('.input').val();
+
+   if ($button.text() == "+") {
+      var newVal = parseFloat(oldValue) + 1;
+    } else {
+       // Don't allow decrementing below zero
+      if (oldValue > 1) {
+        var newVal = parseFloat(oldValue) - 1;
+        } else {
+        newVal = 1;
+      }
+      }
+    $parent.find('a.add-to-cart').attr('data-quantity', newVal);
+    $parent.find('.input').val(newVal);
+ });
+});
     </script>
 </body>
 
