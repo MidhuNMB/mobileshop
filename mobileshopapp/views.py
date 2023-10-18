@@ -334,10 +334,11 @@ def deleteuser(request,id):
     return redirect('/loginuser/',{'a1':a})
 
 def addproduct(request):
-    return render( request,'addproduct.html')
+    a=request.session['username']
+    return render( request,'addproduct.html',{'a':a})
 def addprotbl(request):
     a=product_tbl()
-    a.name=request.POST.get('name')
+    a.brandname=request.POST.get('brandname')
     photo=request.FILES['photo']
     fs=FileSystemStorage()
     image=fs.save(photo.name,photo)
@@ -346,6 +347,9 @@ def addprotbl(request):
     a.colour=request.POST.get('colour')
     a.description=request.POST.get('description')
     a.price=request.POST.get('price')
+    a.modelname=request.POST.get('modelname')
+    a.batetrystatus=request.POST.get('bs')
+    a.sellername=request.POST.get('sellername')
     
     a.save()
     return redirect('/addproduct/')
@@ -362,7 +366,7 @@ def updateproduct(request,id):
 def updateprotbl(request,id):
     a=product_tbl.objects.get(id=id)
     try:
-        a.name=request.POST.get('name')
+        a.brandname=request.POST.get('brandname')
         photo=request.FILES['photo']
         fs=FileSystemStorage()
         image=fs.save(photo.name,photo)
@@ -371,11 +375,14 @@ def updateprotbl(request,id):
         a.colour=request.POST.get('colour')
         a.description=request.POST.get('description')
         a.price=request.POST.get('price')
+        a.batetrystatus.POST.get('batterystatus')
     except:
-        a.name=request.POST.get('name')
+        a.brandname=request.POST.get('name')
         a.colour=request.POST.get('colour')
         a.description=request.POST.get('description')
         a.price=request.POST.get('price')
+        a.modelname=request.POST.get('modelname')
+        a.batetrystatus=request.POST.get('batterystatus')
 
         a.save()
         return redirect('/viewproduct/')
@@ -386,30 +393,9 @@ def deletepro(request,id):
 
 def cartpg(request):
     return render(request,'cart.html')
-
- #def addtocart(request,id):
-    if request.user.is_authenticated():
-            try:
-                book = Book.objects.get(id=id)
-            except ObjectDoesNotExist:
-                pass
-            else :
-                try:
-                    cart = Cart.objects.get(user = request.user, active = True)
-                except ObjectDoesNotExist:
-                    cart = Cart.objects.create(user = request.user)
-                    cart.save()
-                    cart.add_to_cart(book_id)
-                    return redirect('cart')
-                else:
-                    return redirect('index')
-                
-def addtocart(request,id):
-    request.session['username']
-    a=product_tbl.objects.get(id=id)
-    return render(request,'cart.html',{'x':a})
-def viewcart(request):
-
+def usrprtbl(request,id):
+    a=product_tbl.objects.all(id=id)
+    return render(request,'user.html',{'a':a})
 
 
 

@@ -60,7 +60,7 @@ urlpatterns = [
     path('updateprotbl/<int:id>',views.updateprotbl),
     path('deleteproduct/<int:id>',views.deletepro),
     path('cartpg/',views.cartpg),
-    path('addtocart/<int:id>',views.addtocart)
+   path('usrprtbl',views.usrprtbl)
 
    
 

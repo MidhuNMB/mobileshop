@@ -47,18 +47,26 @@ class staff_tbl(models.Model):
         db_tbl='staff_tbl'
 
 class product_tbl(models.Model):
-    name=models.CharField(max_length=500)
+    sellername=models.CharField(max_length=500)
+    brandname=models.CharField(max_length=500)
+    modelname=models.CharField(max_length=500)
     colour=models.CharField(max_length=500)
     description=models.CharField(max_length=500)
     price=models.CharField(max_length=500)
+    batetrystatus=models.CharField(max_length=500)
     photo=models.CharField(max_length=50)
     class meta:
         db_tbl='product_tbl'
 
 class cart_tbl(models.Model):
+    username=models.CharField(max_length=500)
     photo=models.CharField(max_length=500)
     productname=models.CharField(max_length=500)
+    brand=models.CharField(max_length=500)
+    sellername=models.CharField(max_length=500)
     quantity=models.CharField(max_length=500)
+    price=models.CharField(max_length=500)
+    satus=models.CharField(max_length=500)
 
     class meta:
         db_tbl='cart_tbl'

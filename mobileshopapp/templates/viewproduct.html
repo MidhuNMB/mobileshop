@@ -116,9 +116,12 @@
     
     <table class="table table-bordered">
         <thead>
-            <th>name</th>
+            <th>brandname</th>
+            <th>modelname</th>
+            <th>sellername</th>
             <th>colour</th>
             <th>description</th>
+            <th>batterystatus</th>
             <th>price</th>
             <th>photo</th>
             
@@ -127,15 +130,18 @@
     
         {% for x in data %}
         <tr>
-        <td>{{x.name}}</td>
+        <td>{{x.brandname}}</td>
+        <td>{{x.modelname}}</td>
+        <td>{{x.sellername}}</td>
         <td>{{x.colour}}</td>
         <td>{{x.description}}</td>
+        <td>{{x.batetrystatus}}</td>
         <td>{{x.price}}</td>
         <td><img src="{{x.photo}}" height="100" width="100" alt="img"></td>
         <td>{{x.username}}</td>
         <td><a class="btn btn-outline-secondary" href="/deleteproduct/{{x.id}}">delete</a></td>
         <td><a class="btn btn-outline-secondary" href="/updateproduct/{{x.id}}">update</a></td>
-        <td><a href="/addtocart/" class="btn btn-primary" >add to cart</a></td>
+        <td><a href="/addtocart/{{pk.id}}" class="btn btn-primary" >add to cart</a></td>
         
         
         </tr>
