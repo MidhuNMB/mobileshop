@@ -334,10 +334,11 @@ def deleteuser(request,id):
     return redirect('/loginuser/',{'a1':a})
 
 def addproduct(request):
-    return render( request,'addproduct.html')
+    a=request.session['username']
+    return render( request,'addproduct.html',{'a':a})
 def addprotbl(request):
     a=product_tbl()
-    a.name=request.POST.get('name')
+    a.brandname=request.POST.get('brandname')
     photo=request.FILES['photo']
     fs=FileSystemStorage()
     image=fs.save(photo.name,photo)
@@ -346,6 +347,9 @@ def addprotbl(request):
     a.colour=request.POST.get('colour')
     a.description=request.POST.get('description')
     a.price=request.POST.get('price')
+    a.modelname=request.POST.get('modelname')
+    a.batetrystatus=request.POST.get('bs')
+    a.sellername=request.POST.get('sellername')
     
     a.save()
     return redirect('/addproduct/')
@@ -362,7 +366,7 @@ def updateproduct(request,id):
 def updateprotbl(request,id):
     a=product_tbl.objects.get(id=id)
     try:
-        a.name=request.POST.get('name')
+        a.brandname=request.POST.get('brandname')
         photo=request.FILES['photo']
         fs=FileSystemStorage()
         image=fs.save(photo.name,photo)
@@ -371,11 +375,14 @@ def updateprotbl(request,id):
         a.colour=request.POST.get('colour')
         a.description=request.POST.get('description')
         a.price=request.POST.get('price')
+        a.batetrystatus.POST.get('batterystatus')
     except:
-        a.name=request.POST.get('name')
+        a.brandname=request.POST.get('name')
         a.colour=request.POST.get('colour')
         a.description=request.POST.get('description')
         a.price=request.POST.get('price')
+        a.modelname=request.POST.get('modelname')
+        a.batetrystatus=request.POST.get('batterystatus')
 
         a.save()
         return redirect('/viewproduct/')
@@ -410,6 +417,9 @@ def addtocart(request,id):
     return render(request,'cart.html',{'x':a})
 # def viewcart(request):
 
+def usrprtbl(request,id):
+    a=product_tbl.objects.all(id=id)
+    return render(request,'user.html',{'a':a})
 
 
 
