@@ -394,46 +394,32 @@ def deletepro(request,id):
 #def cartpg(request):
     return render(request,'cart.html')
 
-def  addtocart(request,id):
+ #def addtocart(request,id):
+    if request.user.is_authenticated():
+            try:
+                book = Book.objects.get(id=id)
+            except ObjectDoesNotExist:
+                pass
+            else :
+                try:
+                    cart = Cart.objects.get(user = request.user, active = True)
+                except ObjectDoesNotExist:
+                    cart = Cart.objects.create(user = request.user)
+                    cart.save()
+                    cart.add_to_cart(book_id)
+                    return redirect('cart')
+                else:
+                    return redirect('index')
+                
+def addtocart(request,id):
+    request.session['username']
     a=product_tbl.objects.get(id=id)
-    return render(request,'addtocart.html',{'a1':a})
+    return render(request,'cart.html',{'x':a})
+# def viewcart(request):
 
-def adcrtbl(request,id):
-    a=cart_tbl.objects.get(id=id)
-    try:
-        a.brandname=request.POST.get('brandname')
-        photo=request.FILES['photo']
-        fs=FileSystemStorage()
-        image=fs.save(photo.name,photo)
-        image1=fs.url(image)
-        a.photo=image1
-        a.colour=request.POST.get('colour')
-        a.description=request.POST.get('description')
-        a.price=request.POST.get('price')
-        a.batetrystatus.POST.get('batterystatus')
-        a.sellername=request.POST.get('sellername')
-        a.save()
-    except:
-        a.brandname=request.POST.get('name')
-        a.colour=request.POST.get('colour')
-        a.description=request.POST.get('description')
-        a.price=request.POST.get('price')
-        a.modelname=request.POST.get('modelname')
-        a.batetrystatus=request.POST.get('batterystatus')
-        a.sellername=request.POST.get('sellername')
-        a.save()
-    return redirect('/')
-
-        
-    
-
-       
-        
-       
-   
-
-
-
+def usrprtbl(request,id):
+    a=product_tbl.objects.all(id=id)
+    return render(request,'user.html',{'a':a})
 
 
 
