@@ -408,7 +408,7 @@ def addtocart(request,id):
     request.session['username']
     a=product_tbl.objects.get(id=id)
     return render(request,'cart.html',{'x':a})
-def viewcart(request):
+# def viewcart(request):
 
 
 
