@@ -394,7 +394,7 @@ def deletepro(request,id):
 #def cartpg(request):
     return render(request,'cart.html')
 
- #def addtocart(request,id):
+def addtocart(request,id):
     if request.user.is_authenticated():
             try:
                 book = Book.objects.get(id=id)
