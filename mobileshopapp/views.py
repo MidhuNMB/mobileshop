@@ -394,7 +394,7 @@ def deletepro(request,id):
 #def cartpg(request):
     return render(request,'cart.html')
 
-def addtocart(request,id):
+#def addtocart(request,id):
     if request.user.is_authenticated():
             try:
                 book = Book.objects.get(id=id)
@@ -414,12 +414,39 @@ def addtocart(request,id):
 def addtocart(request,id):
     request.session['username']
     a=product_tbl.objects.get(id=id)
-    return render(request,'cart.html',{'x':a})
+    return render(request,'cart.html',{'a1':a})
 # def viewcart(request):
 
 def usrprtbl(request,id):
     a=product_tbl.objects.all(id=id)
     return render(request,'user.html',{'a':a})
+def adcrtbl(request,id):
+    a=cart_tbl.objects.get(id=id)
+    try:
+        a.username.POST.get('username')
+        a.productname.POST.get('productname')
+        a.brand.POST.get('barnd')
+        a.sellername.POST.get('sellername')
+        a.quantity.POST.get('quantity')
+        a.price.POST.get('price')
+        a.satus.POST.get('status')
+        photo=request.FILES['photo']
+        fs=FileSystemStorage()
+        image=fs.save(photo.name,photo)
+        image1=fs.url(image)
+        a.photo=image1
+        a.save()
+    except:
+        a.username.POST.get('username')
+        a.productname.POST.get('productname')
+        a.brand.POST.get('barnd')
+        a.sellername.POST.get('sellername')
+        a.quantity.POST.get('quantity')
+        a.price.POST.get('price')
+        a.satus.POST.get('status')
+        a.save()
+        return redirect('/userHome/')
+        
 
 
 
