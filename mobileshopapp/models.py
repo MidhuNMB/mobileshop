@@ -64,9 +64,10 @@ class cart_tbl(models.Model):
     productname=models.CharField(max_length=500)
     brand=models.CharField(max_length=500)
     sellername=models.CharField(max_length=500)
-    quantity=models.CharField(max_length=500)
-    price=models.CharField(max_length=500)
+    quantity=models.IntegerField()
+    price=models.IntegerField()
     satus=models.CharField(max_length=500)
+    totalAmount=models.IntegerField()
 
     class meta:
         db_tbl='cart_tbl'

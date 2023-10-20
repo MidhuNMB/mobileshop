@@ -61,7 +61,7 @@ urlpatterns = [
     path('deleteproduct/<int:id>',views.deletepro),
     #path('cartpg/',views.cartpg),
     #path('addtocart/<int:id>',views.addtocart),
-    path('adcrtbl/<int:id>',views.adcrtbl),
+    path('adcrtbl/',views.adcrtbl),
     path('addtocart/<int:id>',views.addtocart)
    
 

@@ -113,14 +113,16 @@
                     <div class="titlepage">
                         <h2>add to cart</h2>
                     </div>
-                    <form class="main_form" action="/adcrtbl/{{a1.id}}" method="post" enctype="multipart/form-data">
+                    <form class="main_form" action="/adcrtbl/" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
+                        <input type="text" name="id" value="{{a1.id}}" hidden>
+
                         <div class="row">
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
                                 <input class="form-control" placeholder="modelname" type="text" name="productname" value="{{a1.modelname}}">
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                                <input class="form-control" placeholder="brandname" type="text" name="brand" value="{{a1.brandname}}">
+                                <input class="form-control" name="brand1" value="{{ a1.brandname }}">
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
                                 <input class="form-control" placeholder="sellername" type="text" name="sellername" value="{{a1.sellername}}">
@@ -139,22 +141,19 @@
                             </div>
                 
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                               
-                                <input class="form-control" placeholder="photo" type="file" name="photo" value="{{ a1.photo }}">
+                               <img src="{{ a1.photo }}">
+                                <!-- <input class="form-control" placeholder="photo" type="file" name="photo" value="{{ a1.photo }}"> -->
                             </div>
 
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
                                
-                                <input class="form-control" placeholder="username" type="text" name="username" value="{{a1.username}}">
+                                <input class="form-control" placeholder="username" type="text" name="username" value="{{ user }}">
                             </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                               
-                                <input class="form-control" placeholder="status" type="text" name="status" value="in cart">
-                            </div>
+                            
 
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
                                
-                                <input class="form-control" placeholder="quantity" type="number" name="quantity" value="">
+                                <input class="form-control" placeholder=" add quantity" type="number" name="quantity" value="">
                             </div>
                             
                            

@@ -412,41 +412,31 @@ def deletepro(request,id):
                     return redirect('index')
                 
 def addtocart(request,id):
-    request.session['username']
+    un=request.session['username']
     a=product_tbl.objects.get(id=id)
-    return render(request,'cart.html',{'a1':a})
+    return render(request,'cart.html',{'a1':a,"user":un})
 # def viewcart(request):
 
 def usrprtbl(request,id):
     a=product_tbl.objects.all(id=id)
     return render(request,'user.html',{'a':a})
-def adcrtbl(request,id):
-    a=cart_tbl.objects.get(id=id)
-    try:
-        a.username.POST.get('username')
-        a.productname.POST.get('productname')
-        a.brand.POST.get('barnd')
-        a.sellername.POST.get('sellername')
-        a.quantity.POST.get('quantity')
-        a.price.POST.get('price')
-        a.satus.POST.get('status')
-        photo=request.FILES['photo']
-        fs=FileSystemStorage()
-        image=fs.save(photo.name,photo)
-        image1=fs.url(image)
-        a.photo=image1
-        a.save()
-    except:
-        a.username.POST.get('username')
-        a.productname.POST.get('productname')
-        a.brand.POST.get('barnd')
-        a.sellername.POST.get('sellername')
-        a.quantity.POST.get('quantity')
-        a.price.POST.get('price')
-        a.satus.POST.get('status')
-        a.save()
-        return redirect('/userHome/')
-        
+def adcrtbl(request):
+    a=cart_tbl()
+    b=request.POST.get('id')
+    print(b,"Daata")
+    c=product_tbl.objects.get(id=b)
+    a.username=request.POST.get('username')
+    a.productname=request.POST.get('productname')
+    a.brand=c.brandname
+    print(a.productname,"test1")
+    a.sellername=request.POST.get('sellername')
+    a.quantity=request.POST.get('quantity')
+    a.price=request.POST.get('price')
+    a.satus="in cart"
+    a.totalAmount=int(a.quantity)*int(a.price)
+    a.photo=c.photo
+    a.save()
+    return redirect('/viewproduct/')
 
 
 
