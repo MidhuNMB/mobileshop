@@ -104,72 +104,69 @@
     </header>
     <!-- end header -->
 
-    <h1>user page</h1><br> <br>
+  
 
-    <div class="row">
-        <div class="col-md-4" id="product-1">
-            <img src="img1.jpg" /><br />
-            <h2>Product 1</h2>
-        <button class="button">+</button>
-        <button class="button">-</button>
-            <input type="number" class="input" value="1" min="1" />
-            <a href="product.php?add-to-cart=1" data-id="1" data-quantity="1" class="add-to-cart ajax product-1">Add to Cart</a>
-        </div>
-        
-        <div class="col-md-4" id="product-2">
-            <img src="img2.jpg" /><br />
-            <h2>Product 2</h2>
-        <button class="button">+</button>
-        <button class="button">-</button>
-            <input type="number" class="input" value="1" min="1" />
-            <a href="product.php?add-to-cart=2" data-id="2" data-quantity="1" class="add-to-cart ajax product-2">Add to Cart</a>
-        </div>
-        
-        <div class="col-md-4" id="product-3">
-            <img src="img3.jpg" /><br />
-            <h2>Product 3</h2>
-        <button class="button">+</button>
-        <button class="button">-</button>
-            <input type="number" class="input" value="1" min="1" />
-            <a href="product.php?add-to-cart=3" data-id="3" data-quantity="1" class="add-to-cart ajax product-2">Add to Cart</a>
-        </div>
-        
-        <div class="col-md-4" id="product-4">
-            <img src="img4.jpg" /><br />
-            <h2>Product 4</h2>
-        <button class="button">+</button>
-        <button class="button">-</button>
-            <input type="number" class="input" value="1" min="1" />
-            <a href="product.php?add-to-cart=4" data-id="4" data-quantity="1" class="add-to-cart ajax product-4">Add to Cart</a>
+    <div class="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="titlepage">
+                        <h2>add to cart</h2>
+                    </div>
+                    <form class="main_form" action="/adcrtbl/{{a1.id}}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                <input class="form-control" placeholder="modelname" type="text" name="productname" value="{{a1.modelname}}">
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                <input class="form-control" placeholder="brandname" type="text" name="brand" value="{{a1.brandname}}">
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                <input class="form-control" placeholder="sellername" type="text" name="sellername" value="{{a1.sellername}}">
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                <input class="form-control" placeholder="color" type="text" name="colour" value="{{a1.colour}}" >
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                <input class="form-control" placeholder="description" type="text" name="description" value="{{a1.description}}">
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                <input class="form-control" placeholder="price" type="text" name="price" value="{{a1.price}}">
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                <input class="form-control" placeholder="batetrystatus" type="text" name="bs"  value="{{a1.batetrystatus}}">
+                            </div>
+                
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                               
+                                <input class="form-control" placeholder="photo" type="file" name="photo" value="{{ a1.photo }}">
+                            </div>
+
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                               
+                                <input class="form-control" placeholder="username" type="text" name="username" value="{{a1.username}}">
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                               
+                                <input class="form-control" placeholder="status" type="text" name="status" value="in cart">
+                            </div>
+
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                               
+                                <input class="form-control" placeholder="quantity" type="number" name="quantity" value="">
+                            </div>
+                            
+                           
+                            <div class=" col-md-12">
+                               <input class="send" type="submit" value="Create account">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
-   
-
-    <table class="table table-bordered">
-        <thead>
-            <th>product_name</th>
-            <th>photo</th>
-            <th>quantity</th>
-
-        </thead>
-    
-        {% for x in data %}
-        <tr>
-        <td>{{x.productname}}</td>
-        <td>{{x.lastname}}</td>
-        <td>{{x.gender}}</td>
-        <td><img src="{{x.photo}}" height="100" width="100" alt="img"></td>
-        <td>{{x.username}}</td>
-        <td><a href="/delete1/{{x.id}}">delete</a></td>
-        <td><a href="/update1/{{x.id}}">update</a></td>
-
-        </tr>
-        {% endfor %}
-    </table>
-
-
-  
-              
 
 
     <!-- footer -->
