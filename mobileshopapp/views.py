@@ -391,25 +391,8 @@ def deletepro(request,id):
     a.delete()
     return redirect('/viewproduct/',{'data':a})
 
-#def cartpg(request):
-    return render(request,'cart.html')
 
-#def addtocart(request,id):
-    if request.user.is_authenticated():
-            try:
-                book = Book.objects.get(id=id)
-            except ObjectDoesNotExist:
-                pass
-            else :
-                try:
-                    cart = Cart.objects.get(user = request.user, active = True)
-                except ObjectDoesNotExist:
-                    cart = Cart.objects.create(user = request.user)
-                    cart.save()
-                    cart.add_to_cart(book_id)
-                    return redirect('cart')
-                else:
-                    return redirect('index')
+
                 
 def addtocart(request,id):
     un=request.session['username']
@@ -438,6 +421,10 @@ def adcrtbl(request):
     a.save()
     return redirect('/viewproduct/')
 
+def cartpg(request):
+    a=request.session['username']
+    b=cart_tbl.objects.get(username=a)
+    return render(request,'cartpg.html',{'b':b})
 
 
 
